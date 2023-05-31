@@ -14,10 +14,10 @@ spec:
   #     - grafana.terrestrialplatform.link
   #     secretName: letsencrypt-prod
   rules:
-    - host: master.terrestrialplatform.link
+    - host: cat.terrestrialplatform.link
       http:
         paths:
-          - path: /(.*)
+          - path: /master/(.*)
             pathType: Prefix
    
             backend:

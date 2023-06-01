@@ -12,7 +12,7 @@ spec:
     - protocol: "TCP"
       port: 8011 
       targetPort: 8080
-  type: ClusterIP .
+  type: ClusterIP 
 ---
 apiVersion: apps/v1
 kind: Deployment 

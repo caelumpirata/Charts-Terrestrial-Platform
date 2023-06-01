@@ -7,7 +7,7 @@ metadata:
   # namespace: terrestrial-platform
 spec:
   selector:
-    app: auth_v2-app
+    app: auth-v2-app
   ports:
     - protocol: "TCP"
       port: 8011 

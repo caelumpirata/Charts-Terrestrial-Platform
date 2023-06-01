@@ -1,0 +1,198 @@
+# Auth_V2
+#-----------------------------------
+apiVersion: v1 
+kind: Service 
+metadata: 
+  name: auth_v2-app
+  # namespace: terrestrial-platform
+spec:
+  selector:
+    app: auth_v2-app
+  ports:
+    - protocol: "TCP"
+      port: 8011 
+      targetPort: 8080
+  type: ClusterIP .
+---
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: auth_v2-app
+spec:
+  selector:
+    matchLabels:
+      app: auth_v2-app
+  replicas: 1 
+  template:
+    metadata:
+      labels:
+        app: auth_v2-app
+    spec:
+      containers:
+        - name: auth_v2-app
+          image: savantripathi22/auth_v2:may31
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8011
+---
+
+
+
+
+# Platform_V2
+#-------------------------------------------------------
+apiVersion: v1 
+kind: Service 
+metadata: 
+  name: paltform_v2-app
+  # namespace: terrestrial-platform
+spec:
+  selector:
+    app: paltform_v2-app
+  ports:
+    - protocol: "TCP"
+      port: 8022 
+      targetPort: 8080 
+  type: ClusterIP 
+---
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: paltform_v2-app
+spec:
+  selector:
+    matchLabels:
+      app: paltform_v2-app
+  replicas: 1 
+  template:
+    metadata:
+      labels:
+        app: paltform_v2-app
+    spec:
+      containers:
+        - name: paltform_v2-app 
+          image: savantripathi22/platform_v2:may31
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8022
+---
+
+
+
+# Alarm_v2
+#-----------------------------------------
+# apiVersion: v1 
+# kind: Service 
+# metadata: 
+#   name: alarm_v2-app
+#   # namespace: terrestrial-platform
+# spec:
+#   selector:
+#     app: alarm_v2-app
+#   ports:
+#     - protocol: "TCP"
+#       port: 8033 
+#       targetPort: 8080 
+#   type: ClusterIP 
+# ---
+# apiVersion: apps/v1
+# kind: Deployment 
+# metadata:
+#   name: alarm_v2-app
+# spec:
+#   selector:
+#     matchLabels:
+#       app: alarm_v2-app
+#   replicas: 1 
+#   template:
+#     metadata:
+#       labels:
+#         app: alarm_v2-app
+#     spec:
+#       containers:
+#         - name: alarm_v2-app
+#           image: savantripathi22/alarm_v2:may31
+#           imagePullPolicy: Always
+#           ports:
+#             - containerPort: 8033
+---
+
+
+
+# Tag_v2
+#--------------------------------------
+apiVersion: v1 
+kind: Service 
+metadata: 
+  name: tag_v2-app
+  # namespace: terrestrial-platform
+spec:
+  selector:
+    app: tag_v2-app
+  ports:
+    - protocol: "TCP"
+      port: 8044 
+      targetPort: 8080 
+  type: ClusterIP 
+---
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: tag_v2-app
+spec:
+  selector:
+    matchLabels:
+      app: tag_v2-app
+  replicas: 1 
+  template:
+    metadata:
+      labels:
+        app: tag_v2-app
+    spec:
+      containers:
+        - name: tag_v2-app
+          image: savantripathi22/tag_v2:may31
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8044
+---
+
+
+
+
+# History_v2
+#-------------------------------------
+apiVersion: v1 
+kind: Service 
+metadata: 
+  name: history_v2-app
+  # namespace: terrestrial-platform
+spec:
+  selector:
+    app: history_v2-app
+  ports:
+    - protocol: "TCP"
+      port: 8055 
+      targetPort: 8080 
+  type: ClusterIP 
+---
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: history_v2-app
+spec:
+  selector:
+    matchLabels:
+      app: history_v2-app
+  replicas: 1 
+  template:
+    metadata:
+      labels:
+        app: history_v2-app
+    spec:
+      containers:
+        - name: history_v2-app
+          image: savantripathi22/history_v2:may31
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8055

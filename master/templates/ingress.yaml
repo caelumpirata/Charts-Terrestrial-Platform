@@ -24,7 +24,7 @@ spec:
    
               service:
    
-                name: master
+                name: master-svc
    
                 port:
    

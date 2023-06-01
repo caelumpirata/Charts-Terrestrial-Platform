@@ -61,7 +61,7 @@ spec:
    
               service:
    
-                name: auth_v2-app
+                name: auth-v2-svc
    
                 port:
    
@@ -76,7 +76,7 @@ spec:
  
               service:
    
-                name: platform_v2-app
+                name: platform-v2-svc
    
                 port:
    
@@ -89,7 +89,7 @@ spec:
    
               service:
    
-                name: alarm_v2-app
+                name: alarm-v2-svc
    
                 port:
    
@@ -102,7 +102,7 @@ spec:
    
               service:
    
-                name: tag_v2-app
+                name: tag-v2-svc
    
                 port:
    
@@ -115,7 +115,7 @@ spec:
    
               service:
    
-                name: history_v2-app
+                name: history-v2-svc
    
                 port:
    

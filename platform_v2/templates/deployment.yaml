@@ -3,7 +3,7 @@
 apiVersion: v1 
 kind: Service 
 metadata: 
-  name: auth_v2-app
+  name: auth-v2-svc
   # namespace: terrestrial-platform
 spec:
   selector:
@@ -17,19 +17,19 @@ spec:
 apiVersion: apps/v1
 kind: Deployment 
 metadata:
-  name: auth_v2-app
+  name: auth-v2-app
 spec:
   selector:
     matchLabels:
-      app: auth_v2-app
+      app: auth-v2-app
   replicas: 1 
   template:
     metadata:
       labels:
-        app: auth_v2-app
+        app: auth-v2-app
     spec:
       containers:
-        - name: auth_v2-app
+        - name: auth-v2-app
           image: savantripathi22/auth_v2:may31
           imagePullPolicy: Always
           ports:
@@ -44,11 +44,11 @@ spec:
 apiVersion: v1 
 kind: Service 
 metadata: 
-  name: paltform_v2-app
+  name: paltform-v2-svc
   # namespace: terrestrial-platform
 spec:
   selector:
-    app: paltform_v2-app
+    app: paltform-v2-app
   ports:
     - protocol: "TCP"
       port: 8022 
@@ -58,19 +58,19 @@ spec:
 apiVersion: apps/v1
 kind: Deployment 
 metadata:
-  name: paltform_v2-app
+  name: paltform-v2-app
 spec:
   selector:
     matchLabels:
-      app: paltform_v2-app
+      app: paltform-v2-app
   replicas: 1 
   template:
     metadata:
       labels:
-        app: paltform_v2-app
+        app: paltform-v2-app
     spec:
       containers:
-        - name: paltform_v2-app 
+        - name: paltform-v2-app 
           image: savantripathi22/platform_v2:may31
           imagePullPolicy: Always
           ports:
@@ -84,11 +84,11 @@ spec:
 # apiVersion: v1 
 # kind: Service 
 # metadata: 
-#   name: alarm_v2-app
+#   name: alarm-v2-svc
 #   # namespace: terrestrial-platform
 # spec:
 #   selector:
-#     app: alarm_v2-app
+#     app: alarm-v2-app
 #   ports:
 #     - protocol: "TCP"
 #       port: 8033 
@@ -98,19 +98,19 @@ spec:
 # apiVersion: apps/v1
 # kind: Deployment 
 # metadata:
-#   name: alarm_v2-app
+#   name: alarm-v2-app
 # spec:
 #   selector:
 #     matchLabels:
-#       app: alarm_v2-app
+#       app: alarm-v2-app
 #   replicas: 1 
 #   template:
 #     metadata:
 #       labels:
-#         app: alarm_v2-app
+#         app: alarm-v2-app
 #     spec:
 #       containers:
-#         - name: alarm_v2-app
+#         - name: alarm-v2-app
 #           image: savantripathi22/alarm_v2:may31
 #           imagePullPolicy: Always
 #           ports:
@@ -124,11 +124,11 @@ spec:
 apiVersion: v1 
 kind: Service 
 metadata: 
-  name: tag_v2-app
+  name: tag-v2-svc
   # namespace: terrestrial-platform
 spec:
   selector:
-    app: tag_v2-app
+    app: tag-v2-app
   ports:
     - protocol: "TCP"
       port: 8044 
@@ -138,19 +138,19 @@ spec:
 apiVersion: apps/v1
 kind: Deployment 
 metadata:
-  name: tag_v2-app
+  name: tag-v2-app
 spec:
   selector:
     matchLabels:
-      app: tag_v2-app
+      app: tag-v2-app
   replicas: 1 
   template:
     metadata:
       labels:
-        app: tag_v2-app
+        app: tag-v2-app
     spec:
       containers:
-        - name: tag_v2-app
+        - name: tag-v2-app
           image: savantripathi22/tag_v2:may31
           imagePullPolicy: Always
           ports:
@@ -165,11 +165,11 @@ spec:
 apiVersion: v1 
 kind: Service 
 metadata: 
-  name: history_v2-app
+  name: history-v2-svc
   # namespace: terrestrial-platform
 spec:
   selector:
-    app: history_v2-app
+    app: history-v2-app
   ports:
     - protocol: "TCP"
       port: 8055 
@@ -179,19 +179,19 @@ spec:
 apiVersion: apps/v1
 kind: Deployment 
 metadata:
-  name: history_v2-app
+  name: history-v2-app
 spec:
   selector:
     matchLabels:
-      app: history_v2-app
+      app: history-v2-app
   replicas: 1 
   template:
     metadata:
       labels:
-        app: history_v2-app
+        app: history-v2-app
     spec:
       containers:
-        - name: history_v2-app
+        - name: history-v2-app
           image: savantripathi22/history_v2:may31
           imagePullPolicy: Always
           ports:

@@ -44,11 +44,11 @@ spec:
 apiVersion: v1 
 kind: Service 
 metadata: 
-  name: paltform-v2-svc
+  name: platform-v2-svc
   # namespace: terrestrial-platform
 spec:
   selector:
-    app: paltform-v2-app
+    app: platform-v2-app
   ports:
     - protocol: "TCP"
       port: 8022 
@@ -58,19 +58,19 @@ spec:
 apiVersion: apps/v1
 kind: Deployment 
 metadata:
-  name: paltform-v2-app
+  name: platform-v2-app
 spec:
   selector:
     matchLabels:
-      app: paltform-v2-app
+      app: platform-v2-app
   replicas: 1 
   template:
     metadata:
       labels:
-        app: paltform-v2-app
+        app: platform-v2-app
     spec:
       containers:
-        - name: paltform-v2-app 
+        - name: platform-v2-app 
           image: savantripathi22/platform_v2:may31
           imagePullPolicy: Always
           ports:

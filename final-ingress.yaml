@@ -29,6 +29,28 @@ spec:
                 port:
    
                   number: 80
+
+    - host: recipe.terrestrialplatform.link
+
+      http:
+
+        paths:
+
+          - path: /
+            pathType: Prefix
+
+            backend:
+
+              service:
+
+                name: recipe-svc
+
+                port:
+
+                  number: 9099
+
+
+
     - host: nodered.terrestrialplatform.link
    
       http:

@@ -71,7 +71,7 @@ spec:
     spec:
       containers:
         - name: platform-v2-app 
-          image: savantripathi22/platform_v2:july4
+          image: savantripathi22/platform_v2:july10
           imagePullPolicy: Always
           ports:
             - containerPort: 8022
@@ -111,7 +111,7 @@ spec:
     spec:
       containers:
         - name: alarm-v2-app
-          image: savantripathi22/alarm_v2:july4
+          image: savantripathi22/alarm_v2:july10
           imagePullPolicy: Always
           ports:
             - containerPort: 8033

@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
         - name: auth-v2-app
-          image: savantripathi22/auth_v2:june5
+          image: savantripathi22/auth_v2:july27
           imagePullPolicy: Always
           ports:
             - containerPort: 8011
@@ -71,7 +71,7 @@ spec:
     spec:
       containers:
         - name: platform-v2-app 
-          image: savantripathi22/platform_v2:july10
+          image: savantripathi22/platform_v2:july27
           imagePullPolicy: Always
           ports:
             - containerPort: 8022
@@ -111,7 +111,7 @@ spec:
     spec:
       containers:
         - name: alarm-v2-app
-          image: savantripathi22/alarm_v2:july10
+          image: savantripathi22/alarm_v2:july27
           imagePullPolicy: Always
           ports:
             - containerPort: 8033
@@ -151,7 +151,7 @@ spec:
     spec:
       containers:
         - name: tag-v2-app
-          image: savantripathi22/tag_v2:july4
+          image: savantripathi22/tag_v2:july27
           imagePullPolicy: Always
           ports:
             - containerPort: 8044
@@ -192,7 +192,7 @@ spec:
     spec:
       containers:
         - name: history-v2-app
-          image: savantripathi22/history_v2:june15
+          image: savantripathi22/history_v2:june27
           imagePullPolicy: Always
           ports:
             - containerPort: 8055

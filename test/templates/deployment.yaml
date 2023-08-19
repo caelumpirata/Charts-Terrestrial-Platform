@@ -72,43 +72,43 @@ spec:
             
 ---
 
-# apiVersion: v1 # Kubernetes API version
-# kind: Service # Kubernetes resource kind we are creating
-# metadata: # Metadata of the resource kind we are creating
-  # name: spring-alarm-app
-  # namespace: terrestrial-platform
-# spec:
-  # selector:
-    # app: spring-alarm-app
-  # ports:
-    # - protocol: "TCP"
-      # port: 8003 # The port that the service is running on in the cluster
-      # targetPort: 8080 # The port exposed by the service
-  # type: ClusterIP # type of the service. LoadBalancer indicates that our service will be external.
-# ---
-# apiVersion: apps/v1
-# kind: Deployment # Kubernetes resource kind we are creating
-# metadata:
-  # name: spring-alarm-app
-# spec:
-  # selector:
-    # matchLabels:
-      # app: spring-alarm-app
-  # replicas: 1 # Number of replicas that will be created for this deployment
-  # template:
-    # metadata:
-      # labels:
-        # app: spring-alarm-app
-    # spec:
-      # containers:
-        # - name: spring-alarm-app 
-          # image: savantripathi22/alarm:mar17 # Image that will be used to containers in the cluster and don't forget to add ( :latest ) at the end
-          # imagePullPolicy: Always
-          # ports:
-            # - containerPort: 8003
+apiVersion: v1 # Kubernetes API version
+kind: Service # Kubernetes resource kind we are creating
+metadata: # Metadata of the resource kind we are creating
+  name: spring-alarm-app
+  namespace: terrestrial-platform
+spec:
+  selector:
+    app: spring-alarm-app
+  ports:
+    - protocol: "TCP"
+      port: 8003 # The port that the service is running on in the cluster
+      targetPort: 8080 # The port exposed by the service
+  type: ClusterIP # type of the service. LoadBalancer indicates that our service will be external.
+---
+apiVersion: apps/v1
+kind: Deployment # Kubernetes resource kind we are creating
+metadata:
+  name: spring-alarm-app
+spec:
+  selector:
+    matchLabels:
+      app: spring-alarm-app
+  replicas: 1 # Number of replicas that will be created for this deployment
+  template:
+    metadata:
+      labels:
+        app: spring-alarm-app
+    spec:
+      containers:
+        - name: spring-alarm-app 
+          image: savantripathi22/alarm:mar17 # Image that will be used to containers in the cluster and don't forget to add ( :latest ) at the end
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8003
             
 
-# ---
+---
 
 apiVersion: v1 # Kubernetes API version
 kind: Service # Kubernetes resource kind we are creating

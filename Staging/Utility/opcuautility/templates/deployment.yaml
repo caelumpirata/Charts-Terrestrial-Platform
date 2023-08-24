@@ -3,6 +3,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: opcuautility-service
+  namespace: utility
 spec:
   selector:
     app: opcuautility-app
@@ -10,12 +11,14 @@ spec:
     - protocol: "TCP"
       port: 8080
       targetPort: 8080
+      nodePort: 31003
   type: NodePort
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: opcuautility-app
+  namespace: utility
 spec:
   selector:
     matchLabels:
@@ -26,16 +29,6 @@ spec:
       labels:
         app: opcuautility-app
     spec:
-#      affinity:
-#        nodeAffinity:
-#          requiredDuringSchedulingIgnoredDuringExecution:
-#            nodeSelectorTerms:
-#              - matchExpressions:
-#                  - key: kubernetes.io/hostname
-#                    operator: In
-#                    values:
-#                      - edgenode-pi
-#                      - edgenode-ubuntu
       containers:
         - name: opcuautility-app
           image: savantripathi22/opcuautility:latest

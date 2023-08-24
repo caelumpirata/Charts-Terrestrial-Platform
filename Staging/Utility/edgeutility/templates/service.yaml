@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: edgeutility-service
+  namespace: utility
+spec:
+  selector:
+    app: edgeutility-app
+  ports:
+    - protocol: "TCP"
+      port: 9090
+      targetPort: 8080
+      nodePort: 31005
+  type: NodePort

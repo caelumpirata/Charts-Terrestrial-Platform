@@ -1,19 +1,3 @@
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: opcuautility-service
-  namespace: utility
-spec:
-  selector:
-    app: opcuautility-app
-  ports:
-    - protocol: "TCP"
-      port: 8080
-      targetPort: 8080
-      nodePort: 31003
-  type: NodePort
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:

@@ -1,0 +1,50 @@
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: opcuautility-service
+spec:
+  selector:
+    app: opcuautility-app
+  ports:
+    - protocol: "TCP"
+      port: 8080
+      targetPort: 8080
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: opcuautility-app
+spec:
+  selector:
+    matchLabels:
+      app: opcuautility-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: opcuautility-app
+    spec:
+#      affinity:
+#        nodeAffinity:
+#          requiredDuringSchedulingIgnoredDuringExecution:
+#            nodeSelectorTerms:
+#              - matchExpressions:
+#                  - key: kubernetes.io/hostname
+#                    operator: In
+#                    values:
+#                      - edgenode-pi
+#                      - edgenode-ubuntu
+      containers:
+        - name: opcuautility-app
+          image: savantripathi22/opcuautility:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+      nodeSelector:
+          kubernetes.io/hostname: edgenode-pi
+      tolerations:
+        - key: "node-role.kubernetes.io/edge"
+          operator: "Exists"
+          effect: "NoSchedule"

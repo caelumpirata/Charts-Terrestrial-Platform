@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: staging-edge-app
+  namespace: staging
+spec:
+  selector:
+    matchLabels:
+      app: staging-edge-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: staging-edge-app
+    spec:
+      containers:
+        - name: staging-edge-app
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 9090
+      nodeSelector:
+          kubernetes.io/hostname: edgenode-pi
+      tolerations:
+        - key: "node-role.kubernetes.io/edge"
+          operator: "Exists"
+          effect: "NoSchedule"

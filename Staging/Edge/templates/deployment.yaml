@@ -25,7 +25,7 @@ spec:
 #                      - edgenode-ubuntu
       containers:
         - name: edge-app
-          image: savantripathi22/edge:aug19
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: Always
           ports:
             - containerPort: 9090

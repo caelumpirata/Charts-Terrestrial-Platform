@@ -13,16 +13,6 @@ spec:
       labels:
         app: edge-app
     spec:
-#      affinity:
-#        nodeAffinity:
-#          requiredDuringSchedulingIgnoredDuringExecution:
-#            nodeSelectorTerms:
-#              - matchExpressions:
-#                  - key: kubernetes.io/hostname
-#                    operator: In
-#                    values:
-#                      - edgenode-pi
-#                      - edgenode-ubuntu
       containers:
         - name: edge-app
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"

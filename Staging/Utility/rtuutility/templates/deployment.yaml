@@ -19,7 +19,7 @@ spec:
           image: savantripathi22/rtuutility:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 8080
+            - containerPort: 9090
       nodeSelector:
           kubernetes.io/hostname: edgenode-pi
       tolerations:

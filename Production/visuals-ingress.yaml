@@ -1,0 +1,40 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: visuals-ingress
+  namespace: utility
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    # nginx.ingress.kubernetes.io/service-upstream: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: cat.terrestrialplatform.link
+      http:
+        paths:
+          - path: /nodered/(.*)
+            pathType: Prefix
+
+            backend:
+
+              service:
+
+                name: nodered-node-red
+
+                port:
+
+                  number: 1880
+
+          - path: /grafana/(.*)
+            pathType: Prefix
+
+            backend:
+
+              service:
+
+                name: grafana
+
+                port:
+
+                  number: 80
+

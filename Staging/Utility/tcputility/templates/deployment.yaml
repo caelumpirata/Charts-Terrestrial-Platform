@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: tcputility-app
-  namespace: utility
+  name: staging-tcputility-app
+  namespace: staging
 spec:
   selector:
     matchLabels:
-      app: tcputility-app
+      app: staging-tcputility-app
   replicas: 1
   template:
     metadata:
       labels:
-        app: tcputility-app
+        app: staging-tcputility-app
     spec:
       containers:
-        - name: tcputility-app
+        - name: staging-tcputility-app
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: Always
           ports:

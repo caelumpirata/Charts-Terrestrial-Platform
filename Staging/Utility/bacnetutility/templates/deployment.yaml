@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bacnetutility-app
-  namespace: utility
+  name: staging-bacnetutility-app
+  namespace: staging
 spec:
   selector:
     matchLabels:
-      app: bacnetutility-app
+      app: staging-bacnetutility-app
   replicas: 1
   template:
     metadata:
       labels:
-        app: bacnetutility-app
+        app: staging-bacnetutility-app
     spec:
       hostNetwork: true
       containers:
-        - name: bacnetutility-app
+        - name: staging-bacnetutility-app
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: Always
           ports:

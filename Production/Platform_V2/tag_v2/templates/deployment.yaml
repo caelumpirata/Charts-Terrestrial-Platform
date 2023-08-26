@@ -1,21 +1,8 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: tag-v2-svc
-  # namespace: terrestrial-platform
-spec:
-  selector:
-    app: tag-v2-app
-  ports:
-    - protocol: "TCP"
-      port: 8044
-      targetPort: 8080
-  type: ClusterIP
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: tag-v2-app
+  namespace: terrestrialplatform-v2
 spec:
   selector:
     matchLabels:

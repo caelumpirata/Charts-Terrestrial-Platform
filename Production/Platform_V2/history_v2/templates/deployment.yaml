@@ -1,21 +1,9 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: history-v2-svc
-  # namespace: terrestrial-platform
-spec:
-  selector:
-    app: history-v2-app
-  ports:
-    - protocol: "TCP"
-      port: 8055
-      targetPort: 8080
-  type: ClusterIP
----
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: history-v2-app
+  namespace: terrestrialplatform-v2
 spec:
   selector:
     matchLabels:
@@ -28,7 +16,7 @@ spec:
     spec:
       containers:
         - name: history-v2-app
-          image: savantripathi22/history_v2:june15
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: Always
           ports:
             - containerPort: 8055

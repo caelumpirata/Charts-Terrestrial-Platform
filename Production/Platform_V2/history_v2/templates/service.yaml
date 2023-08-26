@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: history-v2-service
+  namespace: terrestrialplatform-v2
+spec:
+  selector:
+    app: history-v2-app
+  ports:
+    - protocol: "TCP"
+      port: 8055
+      targetPort: 8080
+  type: ClusterIP

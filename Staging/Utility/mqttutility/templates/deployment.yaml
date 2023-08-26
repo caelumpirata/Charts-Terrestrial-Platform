@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mqttutility-app
-  namespace: utility
+  name: staging-mqttutility-app
+  namespace: staging
 spec:
   selector:
     matchLabels:
-      app: mqttutility-app
+      app: staging-mqttutility-app
   replicas: 1
   template:
     metadata:
       labels:
-        app: mqttutility-app
+        app: staging-mqttutility-app
     spec:
       containers:
-        - name: mqttutility-app
+        - name: staging-mqttutility-app
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: Always
           ports:

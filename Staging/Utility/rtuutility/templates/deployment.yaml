@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rtuutility-app
-  namespace: utility
+  name: staging-rtuutility-app
+  namespace: staging
 spec:
   selector:
     matchLabels:
-      app: rtuutility-app
+      app: staging-rtuutility-app
   replicas: 1
   template:
     metadata:
       labels:
-        app: rtuutility-app
+        app: staging-rtuutility-app
     spec:
       hostNetwork: true
       containers:
-        - name: rtuutility-app
+        - name: staging-rtuutility-app
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: Always
           ports:

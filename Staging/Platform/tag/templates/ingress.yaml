@@ -1,8 +1,8 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: tag-ingress
-  namespace: terrestrialplatform
+  name: staging-tag-ingress
+  namespace: staging
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
     # nginx.ingress.kubernetes.io/service-upstream: "true"
@@ -12,15 +12,15 @@ spec:
     - host: cat.terrestrialplatform.link
       http:
         paths:
-          - path: /tag/(.*)
+          - path: /staging/tag/(.*)
             pathType: Prefix
 
             backend:
 
               service:
 
-                name: tag-service
+                name: staging-tag-service
 
                 port:
 
-                  number: 8004
+                  number: 9004

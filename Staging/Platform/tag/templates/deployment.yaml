@@ -2,19 +2,20 @@
 apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
-  name: tag-app
+  name: staging-tag-app
+  namespace: staging
 spec:
   selector:
     matchLabels:
-      app: tag-app
+      app: staging-tag-app
   replicas: 1 # Number of replicas that will be created for this deployment
   template:
     metadata:
       labels:
-        app: tag-app
+        app: staging-tag-app
     spec:
       containers:
-        - name: tag-app
+        - name: staging-tag-app
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}" # Image that will be used to containers in the cluster and don't forget to add ( :latest ) at the end
           imagePullPolicy: Always
           ports:

@@ -1,8 +1,8 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: alarm-ingress
-  namespace: terrestrialplatform
+  name: staging-alarm-ingress
+  namespace: staging
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
     # nginx.ingress.kubernetes.io/service-upstream: "true"
@@ -12,15 +12,15 @@ spec:
     - host: cat.terrestrialplatform.link
       http:
         paths:
-          - path: /alarm/(.*)
+          - path: /staging/alarm/(.*)
             pathType: Prefix
 
             backend:
 
               service:
 
-                name: alarm-service
+                name: staging-alarm-service
 
                 port:
 
-                  number: 8003
+                  number: 9003

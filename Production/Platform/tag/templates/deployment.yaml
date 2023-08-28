@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
   name: tag-app
+  namespace: terrestrialplatform
 spec:
   selector:
     matchLabels:

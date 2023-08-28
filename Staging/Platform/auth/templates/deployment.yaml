@@ -2,21 +2,21 @@
 apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
-  name: history-app
+  name: auth-app
   namespace: terrestrialplatform
 spec:
   selector:
     matchLabels:
-      app: history-app
+      app: auth-app
   replicas: 1 # Number of replicas that will be created for this deployment
   template:
     metadata:
       labels:
-        app: history-app
+        app: auth-app
     spec:
       containers:
-        - name: history-app
+        - name: auth-app
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}" # Image that will be used to containers in the cluster and don't forget to add ( :latest ) at the end
           imagePullPolicy: Always
           ports:
-            - containerPort: 8005
+            - containerPort: 8080

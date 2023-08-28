@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: history-ingress
+  namespace: terrestrialplatform
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    # nginx.ingress.kubernetes.io/service-upstream: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: cat.terrestrialplatform.link
+      http:
+        paths:
+          - path: /history/(.*)
+            pathType: Prefix
+
+            backend:
+
+              service:
+
+                name: history-service
+
+                port:
+
+                  number: 8005

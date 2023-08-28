@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: staging-alarm-v2-service
+  namespace: staging
+spec:
+  selector:
+    app: staging-alarm-v2-app
+  ports:
+    - protocol: "TCP"
+      port: 9033
+      targetPort: 8080
+  type: ClusterIP

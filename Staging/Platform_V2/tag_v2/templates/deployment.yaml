@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: staging-tag-v2-app
+  namespace: staging
+spec:
+  selector:
+    matchLabels:
+      app: staging-tag-v2-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: staging-tag-v2-app
+    spec:
+      containers:
+        - name: staging-tag-v2-app
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8044

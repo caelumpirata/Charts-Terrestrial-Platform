@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: staging-alarm-v2-ingress
+  namespace: staging
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    # nginx.ingress.kubernetes.io/service-upstream: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: cat.terrestrialplatform.link
+      http:
+        paths:
+          - path: /staging/alarm2/(.*)
+            pathType: Prefix
+
+            backend:
+
+              service:
+
+                name: staging-alarm-v2-service
+
+                port:
+
+                  number: 9033

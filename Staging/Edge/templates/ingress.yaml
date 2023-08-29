@@ -9,10 +9,10 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: cat.terrestrialplatform.link
+    - host: edge.tpcloud.tech
       http:
         paths:
-          - path: /staging/edge/(.*)
+          - path: /(.*)
             pathType: Prefix
 
             backend:

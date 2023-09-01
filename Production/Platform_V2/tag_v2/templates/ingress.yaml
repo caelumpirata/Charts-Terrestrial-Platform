@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: cat.terrestrialplatform.link
+    - host: platform.tpcloud.tech
       http:
         paths:
           - path: /tag2/(.*)

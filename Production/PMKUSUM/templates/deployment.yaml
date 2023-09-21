@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pmkusum-app
+  namespace: pmkusum
+spec:
+  selector:
+    matchLabels:
+      app: pmkusum-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pmkusum-app
+    spec:
+      containers:
+        - name: pmkusum-app
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+      # nodeSelector:
+      #     kubernetes.io/hostname: edgenode-pi
+      # tolerations:
+      #   - key: "node-role.kubernetes.io/edge"
+      #     operator: "Exists"
+      #     effect: "NoSchedule"

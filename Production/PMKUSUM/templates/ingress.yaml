@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pmkusum-ingress
+  namespace: pmkusum
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    # nginx.ingress.kubernetes.io/service-upstream: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: pmkusum.tpcloud.tech
+      http:
+        paths:
+          - path: /(.*)
+            pathType: Prefix
+
+            backend:
+
+              service:
+
+                name: pmkusum-service
+
+                port:
+
+                  number: 8080

@@ -12,7 +12,7 @@ spec:
     - host: platform.tpcloud.tech
       http:
         paths:
-          - path: /staging/(.*)
+          - path: /PMKUSUM/(.*)
             pathType: Prefix
 
             backend:

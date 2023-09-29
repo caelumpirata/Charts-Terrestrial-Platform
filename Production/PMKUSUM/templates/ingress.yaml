@@ -9,10 +9,10 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: pmkusum.tpcloud.tech
+    - host: terrestrial.cloud
       http:
         paths:
-          - path: /(.*)
+          - path: /PMKUSUM/(.*)
             pathType: Prefix
 
             backend:

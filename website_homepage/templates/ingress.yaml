@@ -18,7 +18,7 @@ spec:
 
               service:
 
-                name: homepage-service
+                name: website-homepage-service
 
                 port:
 

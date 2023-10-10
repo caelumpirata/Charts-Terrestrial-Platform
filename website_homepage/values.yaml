@@ -6,9 +6,9 @@ replicaCount: 1
 
 image:
   repository: savantripathi22/website_homepage
-  pullPolicy: october_10
+  pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "october_10"
 
 imagePullSecrets: []
 nameOverride: ""

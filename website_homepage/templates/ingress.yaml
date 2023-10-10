@@ -11,7 +11,7 @@ spec:
     - host: terrestrial.cloud
       http:
         paths:
-          - path: /(.*)
+          - path: /home/(.*)
             pathType: Prefix
 
             backend:

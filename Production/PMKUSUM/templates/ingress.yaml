@@ -12,7 +12,7 @@ spec:
     - host: terrestrial.cloud
       http:
         paths:
-          - path: /(.*)
+          - path: /PMKUSUM/(.*)
             pathType: Prefix
 
             backend:

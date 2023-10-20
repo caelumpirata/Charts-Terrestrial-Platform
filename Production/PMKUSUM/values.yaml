@@ -8,7 +8,7 @@ image:
   repository: savantripathi22/pmkusum
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "aug9"
+  tag: "october_16_3"
 
 imagePullSecrets: []
 nameOverride: ""

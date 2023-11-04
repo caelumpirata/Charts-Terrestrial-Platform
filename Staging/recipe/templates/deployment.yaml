@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: staging-recipe-app
+  namespace: staging
+spec:
+  selector:
+    matchLabels:
+      app: staging-recipe-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: staging-recipe-app
+    spec:
+      containers:
+        - name: staging-recipe-app
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 9099

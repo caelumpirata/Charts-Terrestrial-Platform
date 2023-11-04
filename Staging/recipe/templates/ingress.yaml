@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: staging-recipe-ingress
+  namespace: staging
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    # nginx.ingress.kubernetes.io/service-upstream: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: recipe.tpcloud.tech
+      http:
+        paths:
+          - path: /(.*)
+            pathType: Prefix
+
+            backend:
+
+              service:
+
+                name: staging-recipe-service
+
+                port:
+
+                  number: 9099

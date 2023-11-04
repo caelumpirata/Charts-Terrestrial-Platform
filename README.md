@@ -57,6 +57,8 @@ Platform_v2
 
 PMKUSUM
 
+recipe
+
 Utility
 -- bacnetutility
 -- mqttutility

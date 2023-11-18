@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: terrestrial.cloud
+    - host: dashboard.terrestrial.cloud
       http:
         paths:
           - path: /nodered/(.*)

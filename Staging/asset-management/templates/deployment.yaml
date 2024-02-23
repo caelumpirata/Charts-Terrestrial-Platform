@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: staging-assetmanagement-app
+  namespace: staging
+spec:
+  serviceName: "staging-assetmanagement-service"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: staging-assetmanagement-app
+  template:
+    metadata:
+      labels:
+        app: staging-assetmanagement-app
+    spec:      
+      containers:
+        - name: staging-assetmanagement-app
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8081
+          env:
+            - name: DB_ADDR
+              valueFrom:
+                secretKeyRef:
+                  name: master-pguser-master #hippo-pguser-hippo
+                  key: host
+            - name: DB_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: master-pguser-master #hippo-pguser-hippo
+                  key: port
+            - name: DB_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: master-pguser-master #hippo-pguser-hippo
+                  key: dbname
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: master-pguser-master #hippo-pguser-hippo
+                  key: user
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: master-pguser-master #hippo-pguser-hippo
+                  key: password

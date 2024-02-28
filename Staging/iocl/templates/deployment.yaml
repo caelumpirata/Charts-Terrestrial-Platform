@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: StatefulSet  # Changed from Deployment to StatefulSet
+metadata:
+  name: iocl-app
+  namespace: staging
+spec:
+  serviceName: "iocl-service"  # Added serviceName for StatefulSet
+  selector:
+    matchLabels:
+      app: iocl-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: iocl-app
+    spec:
+      containers:
+        - name: iocl-app
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
